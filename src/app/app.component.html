@@ -1,0 +1,34 @@
+<h4>style.background-color</h4>
+<div [style.background-color]="'yellow'">Uses fixed yellow background</div>
+<h4>ngStyle Literal</h4>
+<div [ngStyle]="{ color: 'white', 'background-color': 'blue' }">
+  Uses white text on blue background
+</div>
+<h4>ngStyle Literal and style.font-size.px</h4>
+<div>
+  <span [ngStyle]="{ color: 'red' }" [style.font-size.px]="fontSize">
+    red text
+  </span>
+</div>
+<h4>ngStyle with an object</h4>
+<div [ngStyle]="style"></div>
+<h4>ngStyle with object property from variable</h4>
+<div>
+  <span [ngStyle]="{ color: colorinput.value }">
+    {{ colorinput.value }} text
+  </span>
+</div>
+<h4>style from variable</h4>
+<div [style.background-color]="colorinput.value" style="color:white;">
+  {{ colorinput.value }} background
+</div>
+<h4>Play with the color and font size here</h4>
+<div>
+  <input type="text" name="color" value="{{ color }}" #colorinput />
+</div>
+<div>
+  <input type="text" name="fontSize" value="{{ fontSize }}" #fontinput />
+</div>
+<button (click)="apply(colorinput.value, fontinput.value)">
+  Apply settings
+</button>
